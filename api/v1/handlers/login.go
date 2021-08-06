@@ -1,11 +1,16 @@
 package handlers
 
-type User struct {
-	Name string `json:"name"`
-	Surname string `json:"surname"`
-	Age int `json:"age"`
-}
+import (
+	"github.com/abrorbeksoft/gRPC/api/v1/models"
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
 
-func Login(name, surname string) User {
-	return User{Name: name,Surname: surname,Age: 28}
+
+func (user *handlerV1) Login(c *gin.Context)  {
+	c.JSON(http.StatusOK,models.User{
+		Name: "Abrorbek",
+		Surname: "Ubaydullayev",
+		Age: 21,
+	})
 }
